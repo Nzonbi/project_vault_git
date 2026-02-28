@@ -13,3 +13,11 @@
             state: active
         state: merged
       loop: "{{ vlans }}"
+    - name: show vlan brief
+      ios_command:
+        commands: show vlan brief
+      register: vlan_brief
+
+    - name: print output to screen
+      debug:
+        var: vlan_brief.stdout_lines
