@@ -16,8 +16,8 @@
     - name: show vlan brief
       ios_command:
         commands: show vlan brief
-      register: vlan_brief
+      register: vlans_brief
 
     - name: print output to screen
       debug:
-        var: vlan_brief.stdout_lines
+        var: vlans_brief.stdout_lines
