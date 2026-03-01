@@ -13,7 +13,7 @@
             state: active
         state: merged
       loop: "{{ vlans }}"
-    - name: show vlan brief
+    - name: show vlan output
       ios_command:
         commands: show vlan brief
       register: vlans_brief
