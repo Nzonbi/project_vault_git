@@ -1,0 +1,33 @@
+---
+- name: Create VLANs  switches
+  hosts: switches
+  gather_facts: no
+
+
+  vars:
+    vlans:
+      100: "tes1"
+      200: "test2"
+
+  tasks:
+
+    - name: create vlan
+      ios_vlans:
+        config:
+          - vlan_id: "{{ item.key}}"
+            name: "{{ item.value}}"
+            state: active
+        state: merged
+      loop: "{{ vlans | dict2items }}"
+
+      register: vlan_output
+
+    - name: Save configuration
+      cisco.ios.ios_command:
+            commands: write memory
+      when: vlan_output.changed
+
+    - name: show vlan brief
+      cisco.ios.ios_command:
+        commands: show vlan brief
+      register: vlan_brief
