@@ -1,5 +1,5 @@
     vlans:
       - id: 10
-        name: test1
+        name: test123
       - id: 20
-        name: test2
+        name: test213
