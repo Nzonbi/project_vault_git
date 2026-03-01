@@ -18,6 +18,6 @@
         commands: show vlan brief
       register: vlans_brief
 
-    - name: print output to screen
+    - name: print output to the user
       debug:
         var: vlans_brief.stdout_lines
