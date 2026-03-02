@@ -5,7 +5,7 @@
 
   tasks:
 
-    - name: create vlan
+    - name: create vlan in cli
       ios_vlans:
         config:
           - vlan_id: "{{ item.id }}"
