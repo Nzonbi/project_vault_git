@@ -20,4 +20,4 @@ jobs:
           sudo apt install ansible -y
 
       - name: Run Syntax Check
-        run: ansible-playbook -i inventory/hosts playbooks/site.yml --syntax-check
+        run: ansible-playbook -i inventory/hosts.yml playbooks/site.yml --syntax-check

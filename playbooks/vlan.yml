@@ -23,11 +23,11 @@
       register: vlan_output
 
     - name: Save configuration
-      cisco.ios.ios_command:
+      ios_command:
             commands: write memory
       when: vlan_output.changed
 
     - name: show vlan brief
-      cisco.ios.ios_command:
+      ios_command:
         commands: show vlan brief
       register: vlan_brief
