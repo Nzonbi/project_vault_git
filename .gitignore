@@ -1,0 +1,10 @@
+# Vault password file
+.vault_pass.txt
+
+# Logs or retries
+*.log
+*.retry
+
+# Local environment files
+.env
+__pycache__/
