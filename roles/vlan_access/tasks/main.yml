@@ -1,0 +1,10 @@
+---
+# tasks file for roles/vlan_access
+---
+- name: Create VLANs on access switch
+  ios_config:
+    lines:
+      - vlan 10
+      - name test1
+      - vlan 20
+      - name test2

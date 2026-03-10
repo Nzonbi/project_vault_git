@@ -1,0 +1,8 @@
+# tasks file for roles/trunk_config
+---
+- name: Configure trunk interface
+  ios_config:
+    parents: "interface {{ trunk_interface }}"
+    lines:
+      - switchport mode trunk
+      - switchport trunk allowed vlan {{ vlans | map(attribute='id') | join(',') }}

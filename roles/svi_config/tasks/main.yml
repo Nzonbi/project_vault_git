@@ -1,0 +1,9 @@
+# tasks file for roles/svi_config
+---
+- name: Configure SVI interfaces
+  ios_config:
+    parents: "interface Vlan{{ item.id }}"
+    lines:
+      - ip address 10.{{ item.id }}.0.1 255.255.255.0
+      - no shutdown
+  loop: "{{ vlans }}"

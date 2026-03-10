@@ -1,4 +1,25 @@
 ---
-- import_playbook: create_vlan.yml
-- import_playbook: vlan.yml
+- name: Create VLANs
+  hosts: access:dist
+  gather_facts: no
+  connection: network_cli
+
+  roles:
+    - vlan_config
+
+- name: Configure trunk between switches
+  hosts: access:dist
+  gather_facts: no
+  connection: network_cli
+
+  roles:
+    - trunk_config
+
+- name: Configure SVI on distribution switch
+  hosts: dist
+  gather_facts: no
+  connection: network_cli
+
+  roles:
+    - svi_config
 
